@@ -1,5 +1,11 @@
-$myColor: #ff994e;
-
-.myClass {
-  color: $myColor;
+.parentComponent {
+  background: {
+    color: red;
+  };
+  padding: 25px;
+}
+.childComponent {
+  background: {
+    color: darkorange;
+  };
 }
