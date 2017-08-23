@@ -9,6 +9,10 @@ module.exports = {
         publicPath: "/built/"
     },
 
+    resolve: {
+        extensions: ['.js', '.jsx', '.scss']
+    },
+
     devServer: {
         port: 9090,
         contentBase: __dirname + "/src/html"
@@ -16,6 +20,11 @@ module.exports = {
 
     module: {
         loaders: [
+            {
+                test: /\.jsx$/,
+                use: ["babel-loader"],
+                exclude: /node_modules/
+            },
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
