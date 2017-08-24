@@ -1,19 +1,19 @@
-import * as Actions from '../actions/actionTypes';
+import {FETCH_FINISH, FETCH_START} from '../actions/actionTypes';
 
 const initialState = {
-    cars: []
+    loading: false
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case Actions.ADD_CAR:
+        case FETCH_START:
             state = {
-                cars: [...state.cars, action.payload]
+                loading: true
             }
             break;
-        case Actions.DELETE_CARS:
+        case FETCH_FINISH:
             state = {
-                cars: []
+                loading: false
             }
             break;
     }

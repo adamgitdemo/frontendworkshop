@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Parent from './components/Parent';
-import { createStore, combineReducers } from 'redux';
+import Jokes from './components/Jokes';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
-import CarsReducer from './reducers/carsReducer';
+import JokesReducer from './reducers/jokesReducer';
+import LoadingReducer from './reducers/loadingReducer';
 
 const store = createStore(
-    combineReducers({CarsReducer})
+    combineReducers({LoadingReducer, JokesReducer}),
+    {},
+    applyMiddleware(thunk)
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <Parent/>
+        <Jokes/>
     </Provider>,
     document.getElementById('react-app')
 );
